@@ -45,22 +45,24 @@
         </aside>
         <main>
             <!-- BOOK CARD BEGINS -->
-            <div class="card">
-                <div class="card-top">
-                    <div class="card-top-info">
-                        <p class="bold">Dont Be Sad</p>
-                        <p>By Fulan Ibn Fulan</p>
+             <% allBooks.forEach((book) => { %>
+                <div class="card">
+                    <div class="card-top">
+                        <div class="card-top-info">
+                            <p class="bold"><%= book.title %></p>
+                            <p>By <%= book.author %></p>
+                        </div>
+                        <button class="card-del-btn"><img src="./icons/delete.svg" width="20" height="20"></button>
                     </div>
-                    <button class="card-del-btn"><img src="./icons/delete.svg" width="20" height="20"></button>
-                </div>
-                <div class="card-bottom">
-                    <p>Rs 1000</p>
-                    <div class="card-bottom-btn-ctn">
-                        <button class="card-detail-btn"><img src="./icons/detail.svg" width="20" height="20"></button>
-                        <button class="card-edit-btn"><img src="./icons/bookedit.svg" width="20" height="20"></button>
+                    <div class="card-bottom">
+                        <p>Rs <%= book.price %></p>
+                        <div class="card-bottom-btn-ctn">
+                            <button class="card-detail-btn"><img src="./icons/detail.svg" width="20" height="20"></button>
+                            <button class="card-edit-btn"><img src="./icons/bookedit.svg" width="20" height="20"></button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <% }) %>
             <!-- BOOK CARD ENDS -->
         </main>
     </div>
