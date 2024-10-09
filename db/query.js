@@ -16,4 +16,28 @@ async function addBook(title, author, ISBN, price, desc, categoryId, supplierId,
     }
 }
 
-module.exports = { addBook };
+async function getAllCategories(){
+    try {
+        const { rows } = await pool.query("SELECT categoryname FROM categories")
+        return rows; 
+    } catch (error) {
+        console.error('Error fetching categories:', error);
+        throw new Error('Unable to fetch categories');
+    }
+}
+
+async function getAllBooks(){
+    try {
+        const { rows } = await pool.query("SELECT * FROM books")
+        return rows; 
+    } catch (error) {
+        console.error('Error fetching books:', error);
+        throw new Error('Unable to fetch books');
+    }
+}
+
+module.exports = { 
+    addBook,
+    getAllCategories,
+    getAllBooks
+ };

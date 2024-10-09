@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./common.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Book Store</h1>
+    </header>
+    <div class="content-ctn">
+        <aside>
+            <div class="add-book-ctn">
+                <p><b>Add Book</b></p>
+                <img src="./icons/link.svg" width="20" height="20" alt="">
+            </div>
+
+            <div class="category-ctn">
+                <p><b>Categories</b></p>
+                <ul class="category-ul" type="none"> 
+                    <li>All</li>
+                    <% allCategories.forEach((category) => { %>
+                        <li class="category-list-item">
+                            <span><%= category.categoryname %></span>
+                            <div>
+                                <button class="category-edit-btn"><img src="./icons/edit.svg" width="20" height="20"></button>
+                                <button class="category-del-btn"><img src="./icons/delete.svg" width="20" height="20"></button>
+                            </div>
+                        </li>
+                   <% }) %>
+                </ul>
+                <div class="add-category-ctn">
+                    <p><b>Add Category</b></p>
+                    <img src="./icons/link.svg" width="20" height="20" alt="">
+                </div>
+            </div>
+
+            <div class="supplier-ctn">
+                <p><b>Suppliers</b></p>
+                <img src="./icons/link.svg" width="20" height="20" alt="">
+            </div>
+        </aside>
+        <main>
+            <!-- BOOK CARD BEGINS -->
+            <div class="card">
+                <div class="card-top">
+                    <div class="card-top-info">
+                        <p class="bold">Dont Be Sad</p>
+                        <p>By Fulan Ibn Fulan</p>
+                    </div>
+                    <button class="card-del-btn"><img src="./icons/delete.svg" width="20" height="20"></button>
+                </div>
+                <div class="card-bottom">
+                    <p>Rs 1000</p>
+                    <div class="card-bottom-btn-ctn">
+                        <button class="card-detail-btn"><img src="./icons/detail.svg" width="20" height="20"></button>
+                        <button class="card-edit-btn"><img src="./icons/bookedit.svg" width="20" height="20"></button>
+                    </div>
+                </div>
+            </div>
+            <!-- BOOK CARD ENDS -->
+        </main>
+    </div>
+</body>
+</html>
