@@ -66,7 +66,7 @@ Here’s the complete list of your routes, including GET, POST, PUT, and DELETE 
 
 #### Categories
 - `GET /categories`
-- `GET /categories/:bookname`
+- `GET /books/:bookid` (DONE)
 - `GET /categories/addCategory` (DONE)
 - `POST /categories/addCategory` (DONE)
 - `GET /categories/addBook` (DONE)

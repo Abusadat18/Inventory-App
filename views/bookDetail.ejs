@@ -1,1 +1,28 @@
-<h1>Hello</h1>
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+<body>
+    <%- include("partials/header") %>
+    <main>
+        <h2>Title: <%= book.title %></h2>
+        <p>Author: <%= book.author %></p>
+        <p>Category: <%= book.categoryname %></p>
+        <p>ISBN: <%= book.isbn %></p>
+        <p>Price: <%= book.price %></p>
+        <% if(book.description) { %>
+            <p>Description: <%= book.description %></p>
+        <% } %>
+        <p>Supplier: <%= book.suppliername %></p>
+        <div class="btn-ctn">
+            <button id="edit-btn" class="btn" type="button">Edit</button>
+            <button id="cancel-btn" class="btn" type="button">Back</button>
+        </div>
+    </main>
+</body>
+<script>
+    const cancelBtn = document.getElementById("cancel-btn")
+    cancelBtn.addEventListener("click", () => {
+        window.location.href = "/"
+    })
+</script>
+</html>

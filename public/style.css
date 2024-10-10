@@ -1,7 +1,3 @@
-body {
-    display: flex;
-    flex-direction: column;
-}
 
 .content-ctn {
     display: flex;
@@ -84,6 +80,7 @@ main {
     background-color: inherit;
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 
 .card-bottom {

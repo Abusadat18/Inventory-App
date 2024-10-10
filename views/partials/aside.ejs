@@ -1,0 +1,31 @@
+<aside>
+    <div class="add-book-ctn">
+        <p><b>Add Book</b></p>
+        <img src="./icons/link.svg" width="20" height="20" alt="">
+    </div>
+
+    <div class="category-ctn">
+        <p><b>Categories</b></p>
+        <ul class="category-ul" type="none"> 
+            <li>All</li>
+            <% allCategories.forEach((category) => { %>
+                <li class="category-list-item">
+                    <span><%= category.categoryname %></span>
+                    <div>
+                        <button class="category-edit-btn"><img src="./icons/edit.svg" width="20" height="20"></button>
+                        <button class="category-del-btn"><img src="./icons/delete.svg" width="20" height="20"></button>
+                    </div>
+                </li>
+           <% }) %>
+        </ul>
+        <div class="add-category-ctn">
+            <p><b>Add Category</b></p>
+            <img src="./icons/link.svg" width="20" height="20" alt="">
+        </div>
+    </div>
+
+    <div class="supplier-ctn">
+        <p><b>Suppliers</b></p>
+        <img src="./icons/link.svg" width="20" height="20" alt="">
+    </div>
+</aside>

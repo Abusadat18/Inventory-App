@@ -6,9 +6,11 @@ const booksController = {
         const bookid = +(req.params.bookid)
         
         const book = await db.getBookDetail(bookid)
-        return res.render("bookDetail", { book })
-        
-        
+
+        return res.render("bookDetail", { 
+            book,
+            cssFile: "/bookDetail.css",
+        })
     })
 }
 
