@@ -52,6 +52,13 @@ const categoriesController = {
 
         await db.addBook(title, author, ISBN, price, description, categoryIdInt, supplierIdInt, stockInt)
         res.redirect("/")
+    }),
+
+    addCategoryForm: asyncHandler(async function(req,res){
+        res.render("addCategoryForm", {
+            errorMessages: [],
+            cssFile: "/addCategoryForm.css"
+        })   
     })
     
 }

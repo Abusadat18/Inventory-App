@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+<body>
+    <% if(errorMessages && errorMessages.length>0) { %>
+        <script>
+            const errorMessage = "<%= errorMessages.join('\\n') %>";
+            alert(errorMessage)
+        </script>
+    <% } %>
+    <%- include("partials/header") %>
+    <h2>Book Details</h2>
+    <form action="/categories/addCategory" method="POST" class="add-category-form">
+        <div>
+            <label for="title">Category: </label>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <button class="btn" type="submit">Add Book</button>
+        <button id="cancel-addcategory-btn" type="button" class="btn">Cancel</button>
+    </form>
+</body>
+<script>
+    const cancelAddBookBtn = document.getElementById("cancel-addcategory-btn")
+
+    cancelAddBookBtn.addEventListener("click", () => {
+        window.location.href = "/"
+    })
+</script>
+</html>
