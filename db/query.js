@@ -1,12 +1,12 @@
 const pool = require("./pool");
 
-async function addBook(title, author, ISBN, price, desc, categoryId, supplierId, stock) {
+async function addBook(title, author, ISBN, price, description, categoryId, supplierId, stock) {
     try {
         const queryText = `
             INSERT INTO books (title, author, ISBN, price, description, categoryid, supplierid, stock)
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8);
         `;
-        const values = [title, author, ISBN, price, desc, categoryId, supplierId, stock];
+        const values = [title, author, ISBN, price, description, categoryId, supplierId, stock];
 
         await pool.query(queryText, values);
         
@@ -18,7 +18,7 @@ async function addBook(title, author, ISBN, price, desc, categoryId, supplierId,
 
 async function getAllCategories(){
     try {
-        const { rows } = await pool.query("SELECT categoryname FROM categories")
+        const { rows } = await pool.query("SELECT * FROM categories")
         return rows; 
     } catch (error) {
         console.error('Error fetching categories:', error);

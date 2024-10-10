@@ -46,9 +46,9 @@ const categoriesController = {
         const { title, author, ISBN, price, description, categoryid, supplierid, stock } = req.body;
 
         // Since we get everything from FORM in String
-        const categoryIdInt = parseInt(categoryid, 10)
-        const supplierIdInt = parseInt(supplierid, 10)
-        const stockInt = parseInt(stock, 10)
+        const categoryIdInt = +categoryid
+        const supplierIdInt = +supplierid
+        const stockInt = +stock
 
         await db.addBook(title, author, ISBN, price, description, categoryIdInt, supplierIdInt, stockInt)
         res.redirect("/")
