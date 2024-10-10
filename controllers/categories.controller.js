@@ -24,7 +24,10 @@ const validateAddBook = [
 const categoriesController = {
 
     addBookForm: function(req,res) {
-        res.render("addBookForm", {errorMessages: []})
+        res.render("addBookForm", {
+            errorMessages: [],
+            cssFile: "/addBookForm.css"
+        })
     },
 
     addBook: asyncHandler(async function(req,res) {
@@ -42,7 +45,7 @@ const categoriesController = {
         const stockInt = parseInt(stock, 10)
 
         await db.addBook(title, author, ISBN, price, description, categoryIdInt, supplierIdInt, stockInt)
-        res.send("Success")
+        res.redirect("/")
     })
     
 }

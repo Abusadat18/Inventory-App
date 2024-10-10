@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include("partials/head") %>
 <body>
     <% if(errorMessages && errorMessages.length>0) { %>
         <script>
@@ -12,6 +8,7 @@
             alert(errorMessage)
         </script>
     <% } %>
+    <%- include("partials/header") %>
     <form action="/categories/addBook" method="POST">
         <div>
             <label for="title">Title: </label>
