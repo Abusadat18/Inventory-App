@@ -22,7 +22,15 @@ const categoriesController = {
         const errors = validationResult(req)
         if (!errors.isEmpty()){
             const errorMessages = errors.array().map(error => error.msg);
-            return res.render("addBookForm", { errorMessages }) // Add an alert message use views here
+            const allCategories = await db.getAllCategories() // We will get an array of objects
+            const allSuppliers = await db.getAllSuppliers()
+        
+            return res.render("addBookForm", {
+                errorMessages,
+                cssFile: "/addBookForm.css",
+                allCategories,
+                allSuppliers
+            })
         }     
 
         const { title, author, ISBN, price, description, categoryid, supplierid, stock } = req.body;

@@ -5,7 +5,7 @@ const { validateAddBook, validateCategory } = require("../middlewares/expressVal
 const categoriesRouter = Router()
 
 categoriesRouter.get("/addBook", categoriesController.addBookForm)
-categoriesRouter.post("/addBook",categoriesController.addBook)
+categoriesRouter.post("/addBook", validateAddBook, categoriesController.addBook)
 
 categoriesRouter.get("/addCategory", categoriesController.addCategoryForm)
 categoriesRouter.post("/addCategory", validateCategory ,categoriesController.addCategory)
