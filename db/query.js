@@ -56,8 +56,8 @@ async function addCategory(title){
 }
 
 async function getBookDetail(id){
-    try {
-        const { rows } = await pool.query(`SELECT * 
+    try {  
+        const { rows } = await pool.query(`SELECT books.id, title, author, isbn, price, description, categoryid, supplierid, stock, categoryname, suppliername, contactinfo  
                                    FROM books 
                                    INNER JOIN categories ON books.categoryid = categories.id 
                                    INNER JOIN suppliers ON books.supplierid = suppliers.id
