@@ -49,7 +49,7 @@
                     <div class="card-bottom">
                         <p>Rs <%= book.price %></p>
                         <div class="card-bottom-btn-ctn">
-                            <button class="card-detail-btn"><img src="./icons/detail.svg" width="20" height="20"></button>
+                            <button class="card-detail-btn" data-book-id="<%= book.id %>"><img src="./icons/detail.svg" width="20" height="20"></button>
                             <button class="card-edit-btn"><img src="./icons/bookedit.svg" width="20" height="20"></button>
                         </div>
                     </div>
@@ -70,5 +70,15 @@
     addCategoryCtn.addEventListener("click", () => {
         window.location.href = "/categories/addCategory"
     })
+
+    const showBookDetailBtns = document.querySelectorAll(".card-detail-btn")
+    
+    showBookDetailBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const bookId = +(btn.getAttribute("data-book-id")) // Convert from STR to INT
+            window.location.href= `/books/${bookId}`
+        })
+    });
+    
 </script>
 </html>

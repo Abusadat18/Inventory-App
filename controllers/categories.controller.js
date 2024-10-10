@@ -66,8 +66,7 @@ const categoriesController = {
         await db.addCategory(title)
         res.redirect("/")
         
-    })
-    
+    }),
 }
 
 module.exports = categoriesController

@@ -55,10 +55,25 @@ async function addCategory(title){
     }
 }
 
+async function getBookDetail(id){
+    try {
+        const { rows } = await pool.query(`SELECT * 
+                                   FROM books 
+                                   INNER JOIN categories ON books.categoryid = categories.id 
+                                   INNER JOIN suppliers ON books.supplierid = suppliers.id
+                                   WHERE books.id=$1;`, [id])
+        return rows[0]
+    } catch (error) {
+        console.error("Error getting book detail:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
     getAllBooks,
     getAllSuppliers,
-    addCategory
+    addCategory,
+    getBookDetail
  };
