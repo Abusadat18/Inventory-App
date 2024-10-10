@@ -20,6 +20,14 @@ const validateAddBook = [
         .isInt({ min: 0 }).withMessage('Stock must be a positive integer'),
 ];
 
+const validateCategory = [
+    body('title')
+        .notEmpty().withMessage('Category title is required') // Check that title is not empty
+        .isString().withMessage('Category title must be a string') // Check that it is a string
+        .trim() // Remove whitespace from both sides
+        .isLength({ min: 1, max: 50 }).withMessage('Category title must be between 1 and 50 characters') // Limit the length of the title
+        .matches(/^[a-zA-Z\s]+$/).withMessage('Category title must not contain special characters or numbers') // Allow only letters and spaces
+];
 
 const categoriesController = {
 
@@ -59,6 +67,19 @@ const categoriesController = {
             errorMessages: [],
             cssFile: "/addCategoryForm.css"
         })   
+    }),
+
+    addCategory: asyncHandler(async function(req,res){
+        const errors = validationResult(req)
+        if (!errors.isEmpty()){
+            const errorMessages = errors.array().map(error => error.msg);
+            res.render("addCategoryForm", { errorMessages }) // Add an alert message use views here
+        }   
+        
+        const { title } = req.body
+
+        await db.addCategory(title)
+        res.redirect("/")
     })
     
 }

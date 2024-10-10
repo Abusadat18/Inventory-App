@@ -10,9 +10,9 @@ async function addBook(title, author, ISBN, price, description, categoryId, supp
 
         await pool.query(queryText, values);
         
-    } catch (err) {
-        console.error("Error adding book:", err);
-        throw err; // Re-throw the error to handle it in route/controller
+    } catch (error) {
+        console.error("Error adding book:", error);
+        throw error; // Re-throw the error to handle it in route/controller
     }
 }
 
@@ -46,9 +46,19 @@ async function getAllSuppliers(){
     }
 }
 
+async function addCategory(title){
+    try {
+        await pool.query("INSERT INTO categories (categoryname) VALUES ($1);", [title])
+    } catch (error) {
+        console.error("Error adding category:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
     getAllBooks,
-    getAllSuppliers
+    getAllSuppliers,
+    addCategory
  };
