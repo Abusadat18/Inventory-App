@@ -23,12 +23,18 @@ const validateAddBook = [
 
 const categoriesController = {
 
-    addBookForm: function(req,res) {
+    addBookForm: asyncHandler (async function(req,res) {
+        
+        const allCategories = await db.getAllCategories() // We will get an array of objects
+        const allSuppliers = await db.getAllSuppliers()
+        
         res.render("addBookForm", {
             errorMessages: [],
-            cssFile: "/addBookForm.css"
+            cssFile: "/addBookForm.css",
+            allCategories,
+            allSuppliers
         })
-    },
+    }),
 
     addBook: asyncHandler(async function(req,res) {
         const errors = validationResult(req)
