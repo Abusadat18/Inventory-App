@@ -65,7 +65,6 @@ Here’s the complete list of your routes, including GET, POST, PUT, and DELETE 
 - `GET /` (DONE)
 
 #### Categories
-- `GET /categories`
 - `GET /books/:bookid` (DONE)
 - `GET /categories/addCategory` (DONE)
 - `POST /categories/addCategory` (DONE)
@@ -85,3 +84,4 @@ Here’s the complete list of your routes, including GET, POST, PUT, and DELETE 
 
 This structured route organization should help you implement the backend functionality for your inventory management project effectively. If you have any further questions or need additional modifications, feel free to ask!
 
+get/books/editBook/bookid

@@ -20,7 +20,7 @@
                         <p>Rs <%= book.price %></p>
                         <div class="card-bottom-btn-ctn">
                             <button class="card-detail-btn" data-book-id="<%= book.id %>"><img src="./icons/detail.svg" width="20" height="20"></button>
-                            <button class="card-edit-btn"><img src="./icons/bookedit.svg" width="20" height="20"></button>
+                            <button class="card-edit-btn" data-book-id="<%= book.id %>"><img src="./icons/bookedit.svg" width="20" height="20"></button>
                         </div>
                     </div>
                 </div>
@@ -46,9 +46,18 @@
     showBookDetailBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
             const bookId = +(btn.getAttribute("data-book-id")) // Convert from STR to INT
-            window.location.href= `/books/${bookId}`
+            window.location.href = `/books/${bookId}`
         })
     });
+
+    const editBookBtns = document.querySelectorAll(".card-edit-btn")
+
+    editBookBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const bookId = +(btn.getAttribute("data-book-id"))
+            window.location.href = `/books/editBook/${bookId}`
+        })
+    })
     
 </script>
 </html>

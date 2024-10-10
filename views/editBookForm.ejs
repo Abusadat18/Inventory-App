@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+<body>
+    <% if(errorMessages && errorMessages.length>0) { %>
+        <script>
+            const errorMessage = "<%= errorMessages.join('\\n') %>";
+            alert(errorMessage)
+        </script>
+    <% } %>
+    <%- include("partials/header") %>
+    <form action="/books/editBook/<%= book.id %>" method="POST" class="add-book-form">
+        <div>
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" value="<%= book.title %>" required>
+        </div>
+
+        <div>
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" value="<%= book.author %>" required>
+        </div>
+    
+        <div>
+            <label for="ISBN">ISBN:</label>
+            <input type="text" id="ISBN" name="ISBN" maxlength="13" value="<%= book.isbn %>" required>
+        </div>
+    
+        <div>
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" value="<%= book.price %>" required>
+        </div>
+    
+        <div>
+            <label for="description">Description:</label>
+            <textarea class="desc-textarea" id="description" name="description" rows="8"><%= book.description %></textarea>
+        </div>
+
+        <div>
+            <label for="categoryid">Category:</label>
+            <select id="categoryid" name="categoryid" required>
+                <% allCategories.forEach((category) => { %>
+                    <option value="<%= category.id %>" <%= category.id === book.categoryid ? "selected" : "" %>><%= category.categoryname %></option>
+                <% }) %>
+            </select>
+        </div>
+    
+        <div>
+            <label for="supplierid">Supplier:</label>
+            <select id="supplierid" name="supplierid" required>
+                <% allSuppliers.forEach((supplier) => { %>
+                    <option value="<%= supplier.id %>" <%= supplier.id === book.supplierid ? "selected" : "" %> ><%= supplier.suppliername %></option>
+                <% }) %>
+            </select>
+        </div>
+
+        <div>
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" value="<%= book.stock %>" required>
+        </div>
+    
+        <button class="btn" type="submit">Add Book</button>
+        <button id="cancel-addbook-btn" type="button" class="btn">Cancel</button>
+    </form>
+</body>
+<script>
+    const cancelAddBookBtn = document.getElementById("cancel-addbook-btn")
+
+    cancelAddBookBtn.addEventListener("click", () => {
+        window.location.href = "/"
+    })
+</script>
+</html>
