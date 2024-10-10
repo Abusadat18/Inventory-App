@@ -59,7 +59,15 @@
             <input type="number" id="stock" name="stock" required>
         </div>
     
-        <button class="add-book-btn" type="submit">Add Book</button>
+        <button class="btn" type="submit">Add Book</button>
+        <button id="cancel-addbook-btn" type="button" class="btn">Cancel</button>
     </form>
 </body>
+<script>
+    const cancelAddBookBtn = document.getElementById("cancel-addbook-btn")
+
+    cancelAddBookBtn.addEventListener("click", () => {
+        window.location.href = "/"
+    })
+</script>
 </html>

@@ -62,15 +62,15 @@ Your planned routes look solid for an inventory management system. Below is a re
 Here’s the complete list of your routes, including GET, POST, PUT, and DELETE methods:
 
 #### Homepage
-- `GET /`
+- `GET /` (DONE)
 
 #### Categories
 - `GET /categories`
 - `GET /categories/:bookname`
-- `GET /categories/addCategory`
+- `GET /categories/addCategory` 
 - `POST /categories/addCategory`
-- `GET /categories/addBook`
-- `POST /categories/addBook`
+- `GET /categories/addBook` (DONE)
+- `POST /categories/addBook` (DONE)
 - `PUT /categories/:bookname`
 - `PUT /categories/editCategory/:categoryId`
 - `DELETE /categories/:bookname`
