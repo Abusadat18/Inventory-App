@@ -59,6 +59,7 @@ aside {
 .add-book-ctn {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .category-ctn {

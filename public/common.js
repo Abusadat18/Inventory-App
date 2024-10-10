@@ -1,3 +1,5 @@
-/* document.querySelector("h1").addEventListener("click",() => {
+const addBookCtn = document.querySelector(".add-book-ctn")
+
+addBookCtn.addEventListener("click", () => {
     window.location.href = "/categories/addBook"
-}) */
+})
