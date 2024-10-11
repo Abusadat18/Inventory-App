@@ -6,7 +6,8 @@ const booksRouter = Router()
 
 booksRouter.get("/:bookid", booksController.showBookDetail)
 booksRouter.get("/editBook/:bookid", booksController.showEditBook) // This means edit book form from home page
-booksRouter.post("/editBook/:bookid", validateAddBook, booksController.editBook) // This means edit book from home page
-booksRouter.get("/details/editBook/:bookid", booksController.showEditBook) // THis means edit book form from detail page
+booksRouter.post("/editBook/:bookid", validateAddBook, booksController.editBook) // This will redirect to home page
+booksRouter.get("/details/editBook/:bookid", booksController.showEditBook) // This means edit book form from detail page
+booksRouter.post("/details/editBook/:bookid", validateAddBook, booksController.editBook) // This will redirect to detail page
 
 module.exports = booksRouter

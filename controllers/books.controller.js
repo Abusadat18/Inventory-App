@@ -33,7 +33,8 @@ const booksController = {
 
     editBook: asyncHandler(async function(req,res){
         const bookid = req.params.bookid
-        console.log(req.path);
+        // We will redirect to home if false else detail page
+        const checkPath = req.path.includes("details")
         const errors = validationResult(req)
         if (!errors.isEmpty()){
             const errorMessages = errors.array().map(error => error.msg);
@@ -43,7 +44,7 @@ const booksController = {
 
             return res.render("editBookForm", {
                 book,
-                cssFile: "/addBookForm.css",
+                cssFile: "/addBookForm.css",  // Since it is common for addBook, editBook form
                 errorMessages,
                 allCategories,
                 allSuppliers
@@ -58,7 +59,12 @@ const booksController = {
         const stockInt = +stock
 
         await db.editBook(bookid, title, author, ISBN, price, description, categoryIdInt, supplierIdInt, stockInt)
-        res.redirect("/")
+        
+        if (checkPath){
+            res.redirect(`/books/${bookid}`)
+        } else {
+            res.redirect("/")
+        }
     }),
 
 }
