@@ -105,6 +105,16 @@ async function deleteCategory(id){
     }
 }
 
+async function getCategory(id){
+    try {
+        const { rows } = await pool.query("SELECT * FROM categories WHERE id = $1", [id])
+        return rows[0]
+    } catch (error) {
+        console.error("Error getting category:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
@@ -114,5 +124,6 @@ module.exports = {
     getBookDetail,
     editBook,
     deleteBook,
-    deleteCategory
+    deleteCategory,
+    getCategory
  };

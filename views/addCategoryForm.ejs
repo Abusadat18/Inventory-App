@@ -10,10 +10,10 @@
     <% } %>
     <%- include("partials/header") %>
     <h2>Book Details</h2>
-    <form action="/categories/addCategory" method="POST" class="add-category-form">
+    <form action=<%= checkPath ? `/categories/edit/${category.id}` : `/categories/addCategory` %> method="POST" class="add-category-form">
         <div>
             <label for="title">Category: </label>
-            <input type="text" name="title" id="title" required>
+            <input type="text" name="title" id="title" value="<%= checkPath ? category.categoryname : '' %>" required>
         </div>
         <button class="btn" type="submit">Add Book</button>
         <button id="cancel-addcategory-btn" type="button" class="btn">Cancel</button>

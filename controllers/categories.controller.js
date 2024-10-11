@@ -44,10 +44,19 @@ const categoriesController = {
         res.redirect("/")
     }),
 
-    addCategoryForm: asyncHandler(async function(req,res){
+    addCategoryForm: asyncHandler(async function(req,res){   // Add and Edit Category logic
+        const checkPath = req.path.includes("edit")
+        let categoryid = 0
+        let category
+        if (checkPath) categoryid = req.params.categoryid
+        if (categoryid) {
+            category = await db.getCategory(categoryid)
+        }
         res.render("addCategoryForm", {
             errorMessages: [],
-            cssFile: "/addCategoryForm.css"
+            cssFile: "/addCategoryForm.css",
+            checkPath,
+            category
         })   
     }),
 

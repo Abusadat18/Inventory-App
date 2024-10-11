@@ -73,5 +73,13 @@
         })
     })
 
+    const editCategoryBtns = document.querySelectorAll(".category-edit-btn")
+    editCategoryBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const categoryid = btn.getAttribute("data-cat-id")
+            window.location.href = `/categories/edit/${categoryid}`
+        })
+    })
+
 </script>
 </html>
