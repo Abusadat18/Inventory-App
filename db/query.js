@@ -18,7 +18,7 @@ async function addBook(title, author, ISBN, price, description, categoryId, supp
 
 async function getAllCategories(){
     try {
-        const { rows } = await pool.query("SELECT * FROM categories")
+        const { rows } = await pool.query("SELECT * FROM categories ORDER BY id")
         return rows; 
     } catch (error) {
         console.error('Error fetching categories:', error);
@@ -115,6 +115,15 @@ async function getCategory(id){
     }
 }
 
+async function updateCategory(categoryid, categoryname){
+    try {
+        await pool.query("UPDATE categories SET categoryname = $1 WHERE id = $2", [categoryname, categoryid])
+    } catch (error) {
+        console.error("Error updating category:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
@@ -125,5 +134,6 @@ module.exports = {
     editBook,
     deleteBook,
     deleteCategory,
-    getCategory
+    getCategory,
+    updateCategory
  };

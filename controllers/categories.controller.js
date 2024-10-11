@@ -80,6 +80,25 @@ const categoriesController = {
         const categoryid = +(req.params.categoryid)
         await db.deleteCategory(categoryid)
         res.redirect("/")
+    }),
+
+    editCategory: asyncHandler(async function(req,res){
+        const categoryid = +(req.params.categoryid)
+        const errors = validationResult(req)
+        const category = await db.getCategory(categoryid)
+        if (!errors.isEmpty()){
+            const errorMessages = errors.array().map(error => error.msg);
+            return res.render("addCategoryForm", { 
+                errorMessages,
+                cssFile: "/addCategoryForm.css",
+                category 
+            }) 
+        }
+        
+        const { title } = req.body
+        
+        await db.updateCategory(categoryid, title)
+        res.redirect("/")
     })
 }
 

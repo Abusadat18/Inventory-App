@@ -13,5 +13,6 @@ categoriesRouter.post("/addCategory", validateCategory ,categoriesController.add
 categoriesRouter.get("/delete/:categoryid", categoriesController.deleteCategory)
 
 categoriesRouter.get("/edit/:categoryid", categoriesController.addCategoryForm) // We will check using "include" and provide separate values in the "value" of input
+categoriesRouter.post("/edit/:categoryid", validateCategory, categoriesController.editCategory)  // We will post in 2 diff routes using one 
 
 module.exports = categoriesRouter
