@@ -18,12 +18,18 @@ const supplierController = {
     }),
 
     showAddSupplierForm: asyncHandler(async function(req,res){
-        const checkPath = req.path.includes("edit")
-
+        const checkPath = req.path.includes("edit")    
+        let supplierid = 0
+        let supplier // Obj 
+        if (checkPath){ 
+            supplierid = +(req.params.supplierid) 
+            supplier = await db.getSupplier(supplierid)
+        }
         res.render("addSupplierForm", {
             errorMessages: [],
             cssFile: "/addSupplierForm.css",
-            checkPath
+            checkPath,
+            supplier
         })
     }),
 
