@@ -38,7 +38,7 @@ async function getAllBooks(){
 
 async function getAllSuppliers(){
     try {
-        const { rows } = await pool.query("SELECT id, suppliername FROM suppliers")
+        const { rows } = await pool.query("SELECT * FROM suppliers")
         return rows;
     } catch (error) {
         console.error('Error fetching suppliers:', error);

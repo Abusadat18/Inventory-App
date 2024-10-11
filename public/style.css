@@ -42,6 +42,7 @@ aside {
 .supplier-ctn {
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 main {

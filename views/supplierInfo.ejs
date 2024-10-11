@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+<body>
+    <%- include("partials/header") %>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Contact</th>
+        </tr>
+        <% allSuppliers.forEach((supplier) => { %>
+            <tr>
+                <td><%= supplier.suppliername %></td>
+                <td><%= supplier.contactinfo %></td>
+                <td>
+                    <img src="/icons/edit.svg" width="20" height="20" alt="">
+                    <img src="/icons/delete.svg" width="20" height="20" alt="">
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+    <div class="btn-ctn">
+        <button class="btn">Add Supplier</button>
+        <button id="back-btn" class="btn">Back</button>
+    </div>
+</body>
+<script>
+    const backBtn = document.getElementById("back-btn")
+    backBtn.addEventListener("click", () => {
+        window.location.href = "/"
+    })
+</script>
+</html>

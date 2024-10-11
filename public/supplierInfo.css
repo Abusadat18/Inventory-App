@@ -1,0 +1,43 @@
+body {
+    padding: 0 20px;
+}
+
+table {
+    width: 450px;
+    color: var(--SECONDARY-COLOR);
+    text-align: left;
+    border-spacing: 0 15px;
+}
+
+th {
+    width: 250px; /* Default width for the first column */
+}
+
+th:nth-child(2), td:nth-child(2) {
+    width: 150px; /* Width for the second column */
+}
+
+th:nth-child(3), td:nth-child(3) {
+    width: 50px; /* Width for the third column */
+}
+
+.btn-ctn {
+    display: flex;
+    gap: 30px;
+}
+
+.btn {
+    background-color: var(--PRIMARY-COLOR);
+    color: var(--SECONDARY-COLOR);
+    height: 30px;
+    width: 100px;
+    border: none;
+    border: 2px solid var(--SECONDARY-COLOR);
+    align-self: flex-start;
+}
+
+.btn:hover {
+    background-color: var(--SECONDARY-COLOR);
+    color: var(--PRIMARY-COLOR);
+    cursor: pointer;
+}
