@@ -87,6 +87,15 @@ async function editBook(id, title, author, ISBN, price, description, categoryid,
     }
 }
 
+async function deleteBook(id){
+    try {
+        await pool.query("DELETE FROM books WHERE id=$1", [id])
+    } catch (error) {
+        console.error("Error deleting book:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
@@ -94,5 +103,6 @@ module.exports = {
     getAllSuppliers,
     addCategory,
     getBookDetail,
-    editBook
+    editBook,
+    deleteBook
  };

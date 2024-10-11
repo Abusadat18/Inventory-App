@@ -14,7 +14,7 @@
                             <p class="bold"><%= book.title %></p>
                             <p>By <%= book.author %></p>
                         </div>
-                        <button class="card-del-btn"><img src="./icons/delete.svg" width="20" height="20"></button>
+                        <button class="card-del-btn" data-book-id="<%= book.id %>"><img src="./icons/delete.svg" width="20" height="20"></button>
                     </div>
                     <div class="card-bottom">
                         <p>Rs <%= book.price %></p>
@@ -54,8 +54,16 @@
 
     editBookBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const bookId = +(btn.getAttribute("data-book-id"))
+            const bookId = btn.getAttribute("data-book-id")
             window.location.href = `/books/editBook/${bookId}`
+        })
+    })
+
+    const deleteBookBtns = document.querySelectorAll(".card-del-btn")
+    deleteBookBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const bookid = btn.getAttribute("data-book-id")
+            window.location.href = `/books/delete/${bookid}`
         })
     })
     

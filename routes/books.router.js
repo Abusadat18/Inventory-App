@@ -9,5 +9,6 @@ booksRouter.get("/editBook/:bookid", booksController.showEditBook) // This means
 booksRouter.post("/editBook/:bookid", validateAddBook, booksController.editBook) // This will redirect to home page
 booksRouter.get("/details/editBook/:bookid", booksController.showEditBook) // This means edit book form from detail page
 booksRouter.post("/details/editBook/:bookid", validateAddBook, booksController.editBook) // This will redirect to detail page
+booksRouter.get("/delete/:bookid", booksController.deleteBook)
 
 module.exports = booksRouter

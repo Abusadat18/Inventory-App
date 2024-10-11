@@ -67,6 +67,12 @@ const booksController = {
         }
     }),
 
+    deleteBook: asyncHandler(async function(req,res){
+        const bookid = +(req.params.bookid)  // Convert STR to INT
+        await db.deleteBook(bookid)
+        res.redirect("/")
+    })
+
 }
 
 module.exports = booksController
