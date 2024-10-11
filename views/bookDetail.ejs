@@ -14,7 +14,7 @@
         <% } %>
         <p>Supplier: <%= book.suppliername %></p>
         <div class="btn-ctn">
-            <button id="edit-btn" class="btn" type="button">Edit</button>
+            <button id="edit-btn" data-book-id="<%= book.id %>" class="btn" type="button">Edit</button>
             <button id="cancel-btn" class="btn" type="button">Back</button>
         </div>
     </main>
@@ -24,5 +24,12 @@
     cancelBtn.addEventListener("click", () => {
         window.location.href = "/"
     })
+
+    const editBtn = document.getElementById("edit-btn")
+    editBtn.addEventListener("click", () => {
+        const bookid = editBtn.getAttribute("data-book-id")
+        window.location.href = `/books/editBook/${bookid}`
+    })
+
 </script>
 </html>
