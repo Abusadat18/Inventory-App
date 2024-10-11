@@ -13,8 +13,8 @@
                 <td><%= supplier.suppliername %></td>
                 <td><%= supplier.contactinfo %></td>
                 <td>
-                    <img src="/icons/edit.svg" width="20" height="20" alt="">
-                    <img src="/icons/delete.svg" width="20" height="20" alt="">
+                    <img data-supplier-id="<%= supplier.id %>" src="/icons/edit.svg" width="20" height="20" alt="">
+                    <img class="supplier-del-btn" data-supplier-id="<%= supplier.id %>" src="/icons/delete.svg" width="20" height="20" alt="">
                 </td>
             </tr>
         <% }) %>
@@ -28,6 +28,14 @@
     const backBtn = document.getElementById("back-btn")
     backBtn.addEventListener("click", () => {
         window.location.href = "/"
+    })
+
+    const deleteSupplierBtns = document.querySelectorAll(".supplier-del-btn")
+    deleteSupplierBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const supplierid = btn.getAttribute("data-supplier-id")
+            window.location.href = `/suppliers/delete/${supplierid}`
+        })
     })
 </script>
 </html>

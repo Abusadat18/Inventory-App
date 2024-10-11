@@ -124,6 +124,15 @@ async function updateCategory(categoryid, categoryname){
     }
 }
 
+async function deleteSupplier(supplierid){
+    try {
+        await pool.query("DELETE FROM suppliers WHERE id = $1", [supplierid])
+    } catch (error) {
+        console.error("Error deleting supplier:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
@@ -135,5 +144,6 @@ module.exports = {
     deleteBook,
     deleteCategory,
     getCategory,
-    updateCategory
+    updateCategory,
+    deleteSupplier
  };

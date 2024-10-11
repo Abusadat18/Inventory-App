@@ -8,6 +8,12 @@ const supplierController = {
             allSuppliers,
             cssFile: "/supplierInfo.css"
         })
+    }),
+
+    deleteSupplier: asyncHandler(async function(req,res){
+        const supplierid = +(req.params.supplierid)
+        await db.deleteSupplier(supplierid)
+        res.redirect("/suppliers")
     })
 }
 
