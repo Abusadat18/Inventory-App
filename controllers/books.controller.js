@@ -15,6 +15,8 @@ const booksController = {
 
     showEditBook: asyncHandler(async function(req,res){
         const bookid = +(req.params.bookid)
+        // We are checking here so that we can post in 2 diff routes using one form
+        const checkPath = req.path.includes("details")
         const book = await db.getBookDetail(bookid)
         const allCategories = await db.getAllCategories()
         const allSuppliers = await db.getAllSuppliers()
@@ -24,12 +26,14 @@ const booksController = {
             cssFile: "/addBookForm.css",
             errorMessages: [],
             allCategories,
-            allSuppliers
+            allSuppliers,
+            checkPath
         })
     }),
 
     editBook: asyncHandler(async function(req,res){
         const bookid = req.params.bookid
+        console.log(req.path);
         const errors = validationResult(req)
         if (!errors.isEmpty()){
             const errorMessages = errors.array().map(error => error.msg);
@@ -55,7 +59,8 @@ const booksController = {
 
         await db.editBook(bookid, title, author, ISBN, price, description, categoryIdInt, supplierIdInt, stockInt)
         res.redirect("/")
-    })
+    }),
+
 }
 
 module.exports = booksController

@@ -9,7 +9,7 @@
         </script>
     <% } %>
     <%- include("partials/header") %>
-    <form action="/books/editBook/<%= book.id %>" method="POST" class="add-book-form">
+    <form action=<%= checkPath ? `/books/details/editBook/${book.id}` : `/books/editBook/${book.id}` %> method="POST" class="add-book-form">
         <div>
             <label for="title">Title: </label>
             <input type="text" name="title" id="title" value="<%= book.title %>" required>
