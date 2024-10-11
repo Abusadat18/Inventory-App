@@ -46,15 +46,14 @@ const booksController = {
             })
         }
 
-        const { id, title, author, ISBN, price, description, categoryid, supplierid, stock } = req.body;
+        const { title, author, ISBN, price, description, categoryid, supplierid, stock } = req.body;
 
         // Since we get everything from FORM in String
-        const idInt = +id
         const categoryIdInt = +categoryid
         const supplierIdInt = +supplierid
         const stockInt = +stock
 
-        await db.editBook(id, title, author, ISBN, price, description, categoryid, supplierid, stock)
+        await db.editBook(bookid, title, author, ISBN, price, description, categoryIdInt, supplierIdInt, stockInt)
         res.redirect("/")
     })
 }

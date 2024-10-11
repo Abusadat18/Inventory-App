@@ -70,7 +70,21 @@ async function getBookDetail(id){
 }
 
 async function editBook(id, title, author, ISBN, price, description, categoryid, supplierid, stock){
-
+    try {
+        await pool.query(`UPDATE books
+                          SET title = $1,
+                              author = $2,
+                              ISBN = $3,
+                              price = $4,
+                              description = $5,
+                              categoryid = $6,
+                              supplierid = $7,
+                              stock = $8
+                          WHERE id = $9;`, [title, author, ISBN, price, description, categoryid, supplierid, stock, id])
+    } catch (error) {
+        console.error("Error editing book:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
 }
 
 module.exports = { 
@@ -79,5 +93,6 @@ module.exports = {
     getAllBooks,
     getAllSuppliers,
     addCategory,
-    getBookDetail
+    getBookDetail,
+    editBook
  };
