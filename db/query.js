@@ -28,7 +28,7 @@ async function getAllCategories(){
 
 async function getAllBooks(){
     try {
-        const { rows } = await pool.query("SELECT * FROM books")
+        const { rows } = await pool.query("SELECT * FROM books ORDER BY id")
         return rows; 
     } catch (error) {
         console.error('Error fetching books:', error);
@@ -67,6 +67,10 @@ async function getBookDetail(id){
         console.error("Error getting book detail:", error);
         throw error; // Re-throw the error to handle it in route/controller
     }
+}
+
+async function editBook(id, title, author, ISBN, price, description, categoryid, supplierid, stock){
+
 }
 
 module.exports = { 
