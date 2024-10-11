@@ -133,6 +133,15 @@ async function deleteSupplier(supplierid){
     }
 }
 
+async function addSupplier(suppliername, contact){
+    try {
+        await pool.query("INSERT INTO suppliers (suppliername, contactinfo) VALUES ($1, $2)", [suppliername, contact])
+    } catch (error) {
+        console.error("Error adding supplier:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
@@ -145,5 +154,6 @@ module.exports = {
     deleteCategory,
     getCategory,
     updateCategory,
-    deleteSupplier
+    deleteSupplier,
+    addSupplier
  };
