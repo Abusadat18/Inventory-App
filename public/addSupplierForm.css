@@ -1,0 +1,45 @@
+body {
+    color: var(--SECONDARY-COLOR);
+}
+
+h2 {
+    padding-left: 20px;
+}
+
+.add-supplier-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+    width: 400px;
+}
+
+.add-supplier-form > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-supplier-form > div > input {
+    width: 70%;
+    height: 25px;
+    color: inherit;
+    background-color: inherit;
+    border: none;
+    border-bottom: 2px solid var(--SECONDARY-COLOR);
+    outline: none;
+    padding: 5px 0;
+}
+
+.btn {
+    background-color: var(--PRIMARY-COLOR);
+    color: var(--SECONDARY-COLOR);
+    height: 30px;
+    border: none;
+    border: 2px solid var(--SECONDARY-COLOR);
+}
+
+.btn:hover {
+    background-color: var(--SECONDARY-COLOR);
+    color: var(--PRIMARY-COLOR);
+    cursor: pointer;
+}

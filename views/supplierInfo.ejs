@@ -13,14 +13,14 @@
                 <td><%= supplier.suppliername %></td>
                 <td><%= supplier.contactinfo %></td>
                 <td>
-                    <img data-supplier-id="<%= supplier.id %>" src="/icons/edit.svg" width="20" height="20" alt="">
+                    <img class="supplier-edit-btn" data-supplier-id="<%= supplier.id %>" src="/icons/edit.svg" width="20" height="20" alt="">
                     <img class="supplier-del-btn" data-supplier-id="<%= supplier.id %>" src="/icons/delete.svg" width="20" height="20" alt="">
                 </td>
             </tr>
         <% }) %>
     </table>
     <div class="btn-ctn">
-        <button class="btn">Add Supplier</button>
+        <button id="add-supplier-btn" class="btn">Add Supplier</button>
         <button id="back-btn" class="btn">Back</button>
     </div>
 </body>
@@ -35,6 +35,19 @@
         btn.addEventListener("click", () => {
             const supplierid = btn.getAttribute("data-supplier-id")
             window.location.href = `/suppliers/delete/${supplierid}`
+        })
+    })
+
+    const addSupplierBtn = document.getElementById("add-supplier-btn")
+    addSupplierBtn.addEventListener("click", () => {
+        window.location.href = "/suppliers/addSupplier"
+    })
+
+    const editSupplierBtns = document.querySelectorAll(".supplier-edit-btn")
+    editSupplierBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const supplierid = btn.getAttribute("data-supplier-id")
+            window.location.href = `/suppliers/edit/${supplierid}`
         })
     })
 </script>

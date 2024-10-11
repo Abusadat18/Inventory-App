@@ -14,6 +14,16 @@ const supplierController = {
         const supplierid = +(req.params.supplierid)
         await db.deleteSupplier(supplierid)
         res.redirect("/suppliers")
+    }),
+
+    showAddSupplierForm: asyncHandler(async function(req,res){
+        const checkPath = req.path.includes("edit")
+
+        res.render("addSupplierForm", {
+            errorMessages: [],
+            cssFile: "/addSupplierForm.css",
+            checkPath
+        })
     })
 }
 

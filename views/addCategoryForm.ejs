@@ -9,7 +9,6 @@
         </script>
     <% } %>
     <%- include("partials/header") %>
-    <h2>Book Details</h2>
     <form action=<%= checkPath ? `/categories/edit/${category.id}` : `/categories/addCategory` %> method="POST" class="add-category-form">
         <div>
             <label for="title">Category: </label>

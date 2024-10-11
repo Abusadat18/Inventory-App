@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("partials/head") %>
+<body>
+    <% if(errorMessages && errorMessages.length>0) { %>
+        <script>
+            const errorMessage = "<%= errorMessages.join('\\n') %>";
+            alert(errorMessage)
+        </script>
+    <% } %>
+    <%- include("partials/header") %>
+    <form action=<%= checkPath ? `/suppliers/edit/${supplier.id}` : `/suppliers/addSupplier` %> method="POST" class="add-supplier-form">
+        <div>
+            <label for="suppliername">Name: </label>
+            <input type="text" name="suppliername" id="suppliername" value="<%= checkPath ? supplier.suppliername : '' %>" required>
+        </div>
+        <div>
+            <label for="contact">Contact: </label>
+            <input type="tel" name="contact" id="contact" value="<%= checkPath ? supplier.contactinfo : '' %>" required>
+        </div>
+        <button class="btn" type="submit">Add Supplier</button>
+        <button class="btn" id="cancel-addsupplier-btn" type="button">Cancel</button>
+    </form>
+</body>
+<script>
+    const cancelAddBookBtn = document.getElementById("cancel-addsupplier-btn")
+
+    cancelAddBookBtn.addEventListener("click", () => {
+        window.location.href = "/suppliers"
+    })
+</script>
+</html>
