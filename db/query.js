@@ -38,7 +38,7 @@ async function getAllBooks(){
 
 async function getAllSuppliers(){
     try {
-        const { rows } = await pool.query("SELECT * FROM suppliers")
+        const { rows } = await pool.query("SELECT * FROM suppliers ORDER BY id")
         return rows;
     } catch (error) {
         console.error('Error fetching suppliers:', error);
@@ -152,6 +152,15 @@ async function getSupplier(id){
     }
 }
 
+async function updateSupplier(supplierid, suppliername, contact){
+    try {
+        await pool.query("UPDATE suppliers SET suppliername = $1, contactinfo = $2 WHERE id = $3", [suppliername, contact, supplierid])
+    } catch (error) {
+        console.error("Error updating supplier:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
@@ -166,5 +175,6 @@ module.exports = {
     updateCategory,
     deleteSupplier,
     addSupplier,
-    getSupplier
+    getSupplier,
+    updateSupplier
  };
