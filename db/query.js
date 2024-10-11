@@ -96,6 +96,15 @@ async function deleteBook(id){
     }
 }
 
+async function deleteCategory(id){
+    try {
+        await pool.query("DELETE FROM categories WHERE id=$1", [id])
+    } catch (error) {
+        console.error("Error deleting category:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
@@ -104,5 +113,6 @@ module.exports = {
     addCategory,
     getBookDetail,
     editBook,
-    deleteBook
+    deleteBook,
+    deleteCategory
  };

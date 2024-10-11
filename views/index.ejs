@@ -42,16 +42,14 @@
     })
 
     const showBookDetailBtns = document.querySelectorAll(".card-detail-btn")
-    
     showBookDetailBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
-            const bookId = +(btn.getAttribute("data-book-id")) // Convert from STR to INT
+            const bookId = btn.getAttribute("data-book-id")
             window.location.href = `/books/${bookId}`
         })
     });
 
     const editBookBtns = document.querySelectorAll(".card-edit-btn")
-
     editBookBtns.forEach((btn) => {
         btn.addEventListener("click", () => {
             const bookId = btn.getAttribute("data-book-id")
@@ -67,5 +65,13 @@
         })
     })
     
+    const deleteCategoryBtns = document.querySelectorAll(".category-del-btn")
+    deleteCategoryBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const categoryid = btn.getAttribute("data-cat-id")
+            window.location.href = `/categories/delete/${categoryid}`
+        })
+    })
+
 </script>
 </html>

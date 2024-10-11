@@ -67,6 +67,11 @@ const categoriesController = {
         res.redirect("/")
         
     }),
+    deleteCategory: asyncHandler(async function(req,res){
+        const categoryid = +(req.params.categoryid)
+        await db.deleteCategory(categoryid)
+        res.redirect("/")
+    })
 }
 
 module.exports = categoriesController

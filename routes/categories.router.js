@@ -10,4 +10,6 @@ categoriesRouter.post("/addBook", validateAddBook, categoriesController.addBook)
 categoriesRouter.get("/addCategory", categoriesController.addCategoryForm)
 categoriesRouter.post("/addCategory", validateCategory ,categoriesController.addCategory)
 
+categoriesRouter.get("/delete/:categoryid", categoriesController.deleteCategory)
+
 module.exports = categoriesRouter
