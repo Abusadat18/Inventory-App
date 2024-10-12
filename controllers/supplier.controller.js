@@ -50,16 +50,18 @@ const supplierController = {
         const errors = validationResult(req)
         if (!errors.isEmpty()){
             const errorMessages = errors.array().map(error => error.msg);
+            const allCategories = await db.getAllCategories()
+            
             return res.render("addSupplierForm", { 
                 errorMessages,
                 cssFile: "/addForm.css",
                 checkPath,
-                supplier 
+                supplier,
+                allCategories 
             }) 
         } 
 
         const { suppliername, contact } = req.body
-        console.log(supplierid);
         
         if (checkPath) {
             await db.updateSupplier(supplierid, suppliername, contact)

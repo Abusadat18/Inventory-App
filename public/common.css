@@ -49,7 +49,7 @@ header {
 
 .content-ctn {
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 
 aside {
@@ -58,7 +58,7 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    width: 300px;
+    width: 250px;
     color: var(--SECONDARY-COLOR);
 }
 
@@ -84,6 +84,15 @@ aside {
 .category-list-item {
     display: flex;
     justify-content: space-between;
+    gap: 5px;
+}
+
+.aside-catBtn-ctn {
+    display: flex;
+}
+
+.filter-category, .category-all {
+    cursor: pointer;
 }
 
 .category-edit-btn, .category-del-btn {
@@ -105,4 +114,20 @@ aside {
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+}
+
+@media screen and (max-width: 840px) {
+    aside {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 785px) {
+    .content-ctn {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    
 }

@@ -51,3 +51,9 @@ body {
     color: var(--PRIMARY-COLOR);
     cursor: pointer;
 }
+
+@media screen and (max-width: 465px) {
+    .add-book-form, .add-category-form, .add-supplier-form {
+        width: 300px;
+    }
+}

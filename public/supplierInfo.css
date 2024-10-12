@@ -1,12 +1,12 @@
 table {
-    width: 450px;
+    max-width: 400px;
     color: var(--SECONDARY-COLOR);
     text-align: left;
-    border-spacing: 0 15px;
+    border-spacing: 5px 15px;
 }
 
 th {
-    width: 250px; /* Default width for the first column */
+    width: 200px; /* Default width for the first column */
 }
 
 th:nth-child(2), td:nth-child(2) {
