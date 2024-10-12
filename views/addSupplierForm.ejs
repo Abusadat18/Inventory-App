@@ -9,18 +9,21 @@
         </script>
     <% } %>
     <%- include("partials/header") %>
-    <form action=<%= checkPath ? `/suppliers/edit/${supplier.id}` : `/suppliers/addSupplier` %> method="POST" class="add-supplier-form">
-        <div>
-            <label for="suppliername">Name: </label>
-            <input type="text" name="suppliername" id="suppliername" value="<%= checkPath ? supplier.suppliername : '' %>" required>
-        </div>
-        <div>
-            <label for="contact">Contact: </label>
-            <input type="tel" name="contact" id="contact" value="<%= checkPath ? supplier.contactinfo : '' %>" required>
-        </div>
-        <button class="btn" type="submit">Add Supplier</button>
-        <button class="btn" id="cancel-addsupplier-btn" type="button">Cancel</button>
-    </form>
+    <div class="content-ctn">
+        <%- include("partials/aside")%>
+        <form action=<%= checkPath ? `/suppliers/edit/${supplier.id}` : `/suppliers/addSupplier` %> method="POST" class="add-supplier-form">
+            <div>
+                <label for="suppliername">Name: </label>
+                <input type="text" name="suppliername" id="suppliername" value="<%= checkPath ? supplier.suppliername : '' %>" required>
+            </div>
+            <div>
+                <label for="contact">Contact: </label>
+                <input type="tel" name="contact" id="contact" value="<%= checkPath ? supplier.contactinfo : '' %>" required>
+            </div>
+            <button class="btn" type="submit">Add Supplier</button>
+            <button class="btn" id="cancel-addsupplier-btn" type="button">Cancel</button>
+        </form>
+    </div>
 </body>
 <script>
     const cancelAddBookBtn = document.getElementById("cancel-addsupplier-btn")

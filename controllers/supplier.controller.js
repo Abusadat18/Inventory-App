@@ -27,11 +27,15 @@ const supplierController = {
             supplierid = +(req.params.supplierid) 
             supplier = await db.getSupplier(supplierid)
         }
+
+        const allCategories = await db.getAllCategories()
+
         res.render("addSupplierForm", {
             errorMessages: [],
             cssFile: "/addSupplierForm.css",
             checkPath,
-            supplier
+            supplier,
+            allCategories
         })
     }),
 
