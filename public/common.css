@@ -69,11 +69,14 @@ aside {
 .category-ctn {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .category-ul {
     margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .category-list-item {

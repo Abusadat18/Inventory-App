@@ -6,10 +6,12 @@ const booksController = {
     showBookDetail: asyncHandler(async function(req,res){
         const bookid = +(req.params.bookid)
         const book = await db.getBookDetail(bookid)
+        const allCategories = await db.getAllCategories()
 
         return res.render("bookDetail", { 
             book,
             cssFile: "/bookDetail.css",
+            allCategories
         })
     }),
 

@@ -3,21 +3,24 @@
 <%- include("partials/head") %>
 <body>
     <%- include("partials/header") %>
-    <main>
-        <h2>Title: <%= book.title %></h2>
-        <p>Author: <%= book.author %></p>
-        <p>Category: <%= book.categoryname %></p>
-        <p>ISBN: <%= book.isbn %></p>
-        <p>Price: <%= book.price %></p>
-        <% if(book.description) { %>
-            <p>Description: <%= book.description %></p>
-        <% } %>
-        <p>Supplier: <%= book.suppliername %></p>
-        <div class="btn-ctn">
-            <button id="edit-btn" data-book-id="<%= book.id %>" class="btn" type="button">Edit</button>
-            <button id="cancel-btn" class="btn" type="button">Back</button>
-        </div>
-    </main>
+    <div class="content-ctn">
+        <%- include("partials/aside")%>
+        <main>
+            <h2>Title: <%= book.title %></h2>
+            <p>Author: <%= book.author %></p>
+            <p>Category: <%= book.categoryname %></p>
+            <p>ISBN: <%= book.isbn %></p>
+            <p>Price: <%= book.price %></p>
+            <% if(book.description) { %>
+                <p>Description: <%= book.description %></p>
+            <% } %>
+            <p>Supplier: <%= book.suppliername %></p>
+            <div class="btn-ctn">
+                <button id="edit-btn" data-book-id="<%= book.id %>" class="btn" type="button">Edit</button>
+                <button id="cancel-btn" class="btn" type="button">Back</button>
+            </div>
+        </main>
+    </div>
 </body>
 <script>
     const cancelBtn = document.getElementById("cancel-btn")
