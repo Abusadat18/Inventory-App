@@ -43,13 +43,14 @@ const booksController = {
             const book = await db.getBookDetail(bookid)
             const allCategories = await db.getAllCategories() // We will get an array of objects
             const allSuppliers = await db.getAllSuppliers()
-
+            
             return res.render("editBookForm", {
                 book,
                 cssFile: "/addForm.css",  // Since it is common for addBook, editBook form
                 errorMessages,
                 allCategories,
-                allSuppliers
+                allSuppliers,
+                checkPath
             })
         }
 
