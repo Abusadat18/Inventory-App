@@ -10,10 +10,11 @@
             <p>Author: <%= book.author %></p>
             <p>Category: <%= book.categoryname %></p>
             <p>ISBN: <%= book.isbn %></p>
-            <p>Price: <%= book.price %></p>
+            <p>Price: $ <%= book.price %></p>
             <% if(book.description) { %>
                 <p>Description: <%= book.description %></p>
             <% } %>
+            <p>Stock: <%= book.stock %></p>
             <p>Supplier: <%= book.suppliername %></p>
             <div class="btn-ctn">
                 <button id="edit-btn" data-book-id="<%= book.id %>" class="btn" type="button">Edit</button>
