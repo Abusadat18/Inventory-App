@@ -1,55 +1,10 @@
 
-.content-ctn {
-    display: flex;
-}
 
-aside {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 300px;
-    color: var(--SECONDARY-COLOR);
-    padding-left: 15px;
-}
-
-.add-book-ctn {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.category-ctn {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.category-ul {
-    margin-left: 15px;
-}
-
-.category-list-item {
-    display: flex;
-    justify-content: space-between;
-}
-
-.add-category-ctn {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-}
-
-.supplier-ctn {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-}
 
 main {
     display: grid;
     width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    padding: 20px;
     gap: 25px;
 }
 

@@ -35,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    padding: 0 20px;
 }
 
 header {
@@ -42,4 +43,61 @@ header {
     display: flex;
     justify-content: center;
     padding: 20px 0;
+}
+
+.content-ctn {
+    display: flex;
+    gap: 20px;
+}
+
+aside {
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 300px;
+    color: var(--SECONDARY-COLOR);
+}
+
+.add-book-ctn {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.category-ctn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.category-ul {
+    margin-left: 15px;
+}
+
+.category-list-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-edit-btn, .category-del-btn {
+    appearance: none;
+    border: none;
+    background-color: inherit;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.add-category-ctn {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.supplier-ctn {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }

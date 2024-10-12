@@ -6,6 +6,10 @@ h2 {
     padding-left: 20px;
 }
 
+.content-ctn {
+    display: flex;
+}
+
 .add-book-form {
     display: flex;
     flex-direction: column;
