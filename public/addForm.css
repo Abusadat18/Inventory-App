@@ -2,15 +2,7 @@ body {
     color: var(--SECONDARY-COLOR);
 }
 
-h2 {
-    padding-left: 20px;
-}
-
-.content-ctn {
-    display: flex;
-}
-
-.add-book-form {
+.add-book-form, .add-category-form, .add-supplier-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -18,12 +10,12 @@ h2 {
     width: 400px;
 }
 
-.add-book-form > div {
+.add-book-form > div, .add-category-form > div, .add-supplier-form > div {
     display: flex;
     justify-content: space-between;
 }
 
-.add-book-form > div > input {
+.add-book-form > div > input, .add-category-form > div > input, .add-supplier-form > div > input {
     width: 70%;
     height: 25px;
     color: inherit;

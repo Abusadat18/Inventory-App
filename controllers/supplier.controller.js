@@ -32,7 +32,7 @@ const supplierController = {
 
         res.render("addSupplierForm", {
             errorMessages: [],
-            cssFile: "/addSupplierForm.css",
+            cssFile: "/addForm.css",
             checkPath,
             supplier,
             allCategories
@@ -52,7 +52,7 @@ const supplierController = {
             const errorMessages = errors.array().map(error => error.msg);
             return res.render("addSupplierForm", { 
                 errorMessages,
-                cssFile: "/addSupplierForm.css",
+                cssFile: "/addForm.css",
                 checkPath,
                 supplier 
             }) 

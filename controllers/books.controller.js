@@ -25,7 +25,7 @@ const booksController = {
 
         return res.render("editBookForm", {
             book,
-            cssFile: "/addBookForm.css",
+            cssFile: "/addForm.css",
             errorMessages: [],
             allCategories,
             allSuppliers,
@@ -46,7 +46,7 @@ const booksController = {
 
             return res.render("editBookForm", {
                 book,
-                cssFile: "/addBookForm.css",  // Since it is common for addBook, editBook form
+                cssFile: "/addForm.css",  // Since it is common for addBook, editBook form
                 errorMessages,
                 allCategories,
                 allSuppliers

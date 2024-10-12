@@ -1,7 +1,3 @@
-body {
-    color: var(--SECONDARY-COLOR);
-}
-
 main {
     display: flex;
     flex-direction: column;

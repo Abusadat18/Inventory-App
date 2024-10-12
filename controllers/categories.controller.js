@@ -12,7 +12,7 @@ const categoriesController = {
         
         res.render("addBookForm", {
             errorMessages: [],
-            cssFile: "/addBookForm.css",
+            cssFile: "/addForm.css",
             allCategories,
             allSuppliers
         })
@@ -27,7 +27,7 @@ const categoriesController = {
         
             return res.render("addBookForm", {
                 errorMessages,
-                cssFile: "/addBookForm.css",
+                cssFile: "/addForm.css",
                 allCategories,
                 allSuppliers
             })
@@ -57,7 +57,7 @@ const categoriesController = {
 
         res.render("addCategoryForm", {
             errorMessages: [],
-            cssFile: "/addCategoryForm.css",
+            cssFile: "/addForm.css",
             checkPath,
             category,
             allCategories
@@ -70,7 +70,7 @@ const categoriesController = {
             const errorMessages = errors.array().map(error => error.msg);
             return res.render("addCategoryForm", { 
                 errorMessages,
-                cssFile: "/addCategoryForm.css" 
+                cssFile: "/addForm.css" 
             }) 
         } 
         
@@ -94,7 +94,7 @@ const categoriesController = {
             const errorMessages = errors.array().map(error => error.msg);
             return res.render("addCategoryForm", { 
                 errorMessages,
-                cssFile: "/addCategoryForm.css",
+                cssFile: "/addForm.css",
                 category 
             }) 
         }
