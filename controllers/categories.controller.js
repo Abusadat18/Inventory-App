@@ -52,11 +52,15 @@ const categoriesController = {
         if (categoryid) {
             category = await db.getCategory(categoryid)
         }
+
+        const allCategories = await db.getAllCategories()
+
         res.render("addCategoryForm", {
             errorMessages: [],
             cssFile: "/addCategoryForm.css",
             checkPath,
-            category
+            category,
+            allCategories
         })   
     }),
 

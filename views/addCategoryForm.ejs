@@ -9,14 +9,17 @@
         </script>
     <% } %>
     <%- include("partials/header") %>
-    <form action=<%= checkPath ? `/categories/edit/${category.id}` : `/categories/addCategory` %> method="POST" class="add-category-form">
-        <div>
-            <label for="title">Category: </label>
-            <input type="text" name="title" id="title" value="<%= checkPath ? category.categoryname : '' %>" required>
-        </div>
-        <button class="btn" type="submit">Add Category</button>
-        <button id="cancel-addcategory-btn" type="button" class="btn">Cancel</button>
-    </form>
+    <div class="content-ctn">
+        <%- include("partials/aside")%>
+        <form action=<%= checkPath ? `/categories/edit/${category.id}` : `/categories/addCategory` %> method="POST" class="add-category-form">
+            <div>
+                <label for="title">Category: </label>
+                <input type="text" name="title" id="title" value="<%= checkPath ? category.categoryname : '' %>" required>
+            </div>
+            <button class="btn" type="submit">Add Category</button>
+            <button id="cancel-addcategory-btn" type="button" class="btn">Cancel</button>
+        </form>
+    </div>
 </body>
 <script>
     const cancelAddBookBtn = document.getElementById("cancel-addcategory-btn")
