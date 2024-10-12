@@ -61,3 +61,8 @@ const addBookCtn = document.querySelector(".add-book-ctn")
             window.location.href = `/?categoryid=${categoryid}`
         })
     })
+
+    const allCategory = document.querySelector(".category-all")
+    allCategory.addEventListener("click", () => {
+        window.location.href = "/"
+    })
