@@ -5,8 +5,10 @@ const asyncHandler = require("express-async-handler");
 const supplierController = {
     showAllSuppliers: asyncHandler(async function(req,res){
         const allSuppliers = await db.getAllSuppliers()
+        const allCategories = await db.getAllCategories()
         res.render("supplierInfo", {
             allSuppliers,
+            allCategories,
             cssFile: "/supplierInfo.css"
         })
     }),

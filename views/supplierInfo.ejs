@@ -3,25 +3,30 @@
 <%- include("partials/head") %>
 <body>
     <%- include("partials/header") %>
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Contact</th>
-        </tr>
-        <% allSuppliers.forEach((supplier) => { %>
-            <tr>
-                <td><%= supplier.suppliername %></td>
-                <td><%= supplier.contactinfo %></td>
-                <td>
-                    <img class="supplier-edit-btn" data-supplier-id="<%= supplier.id %>" src="/icons/edit.svg" width="20" height="20" alt="">
-                    <img class="supplier-del-btn" data-supplier-id="<%= supplier.id %>" src="/icons/delete.svg" width="20" height="20" alt="">
-                </td>
-            </tr>
-        <% }) %>
-    </table>
-    <div class="btn-ctn">
-        <button id="add-supplier-btn" class="btn">Add Supplier</button>
-        <button id="back-btn" class="btn">Back</button>
+    <div class="content-ctn">
+        <%- include("partials/aside")%>
+        <div class="table-ctn">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                </tr>
+                <% allSuppliers.forEach((supplier) => { %>
+                    <tr>
+                        <td><%= supplier.suppliername %></td>
+                        <td><%= supplier.contactinfo %></td>
+                        <td>
+                            <img class="supplier-edit-btn" data-supplier-id="<%= supplier.id %>" src="/icons/edit.svg" width="20" height="20" alt="">
+                            <img class="supplier-del-btn" data-supplier-id="<%= supplier.id %>" src="/icons/delete.svg" width="20" height="20" alt="">
+                        </td>
+                    </tr>
+                <% }) %>
+            </table>
+            <div class="btn-ctn">
+                <button id="add-supplier-btn" class="btn">Add Supplier</button>
+                <button id="back-btn" class="btn">Back</button>
+            </div>
+        </div>
     </div>
 </body>
 <script>
