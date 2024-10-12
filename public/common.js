@@ -53,3 +53,11 @@ const addBookCtn = document.querySelector(".add-book-ctn")
     supplierCtn.addEventListener("click", () => {
         window.location.href = "/suppliers"
     })
+
+    const filterCategories = document.querySelectorAll(".filter-category")
+    filterCategories.forEach((category) => {
+        category.addEventListener("click", () => {
+            const categoryid = category.getAttribute("data-cat-id")
+            window.location.href = `/?categoryid=${categoryid}`
+        })
+    })

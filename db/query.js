@@ -161,6 +161,16 @@ async function updateSupplier(supplierid, suppliername, contact){
     }
 }
 
+async function getBooksOfCategory(categoryid){
+    try {
+        const { rows } = await pool.query(`SELECT * FROM books WHERE categoryid = $1`, [categoryid])
+        return rows
+    } catch (error) {
+        console.error("Error filtering books:", error);
+        throw error; // Re-throw the error to handle it in route/controller
+    }
+}
+
 module.exports = { 
     addBook,
     getAllCategories,
@@ -176,5 +186,6 @@ module.exports = {
     deleteSupplier,
     addSupplier,
     getSupplier,
-    updateSupplier
+    updateSupplier,
+    getBooksOfCategory
  };
