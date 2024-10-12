@@ -26,7 +26,20 @@ const validateCategory = [
         .matches(/^[a-zA-Z\s]+$/).withMessage('Category title must not contain special characters or numbers') // Allow only letters and spaces
 ];
 
+const validateSupplier = [
+    body('suppliername')
+        .trim()
+        .notEmpty().withMessage('Supplier name is required')
+        .matches(/^[a-zA-Z\s]+$/).withMessage('Supplier name can only contain letters and spaces'),
+
+    body('contact')
+        .trim()
+        .notEmpty().withMessage('Contact number is required')
+        .matches(/^[\d+\-]+$/).withMessage('Contact number can only contain numbers, +, and -')
+];
+
 module.exports = {
     validateAddBook,
-    validateCategory
+    validateCategory,
+    validateSupplier
 }
