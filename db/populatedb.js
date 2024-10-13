@@ -64,7 +64,7 @@ INSERT INTO books (title, author, isbn, price, description, categoryid, supplier
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:5432/${process.env.DB_NAME}`,
+    connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:6543/${process.env.DB_NAME}`
   });
   await client.connect();
   await client.query(SQL);
@@ -73,3 +73,26 @@ async function main() {
 }
 
 main();
+
+/* CREATE TABLE books (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  author VARCHAR(255) NOT NULL,
+  ISBN VARCHAR(13) NOT NULL,
+  price DECIMAL(10, 2) NOT NULL,
+  description TEXT,
+  categoryid INTEGER NOT NULL REFERENCES categories(id) ON DELETE CASCADE,
+  supplierid INTEGER NOT NULL REFERENCES suppliers(id) ON DELETE CASCADE,
+  stock INTEGER NOT NULL
+);
+
+CREATE TABLE suppliers (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  supplierName VARCHAR(255) NOT NULL,
+  contactInfo VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE categories (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  categoryName VARCHAR(100) NOT NULL
+); */
