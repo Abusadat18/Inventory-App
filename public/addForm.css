@@ -6,7 +6,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding-left: 20px;
     width: 400px;
 }
 

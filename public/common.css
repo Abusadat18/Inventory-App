@@ -29,6 +29,11 @@
     font-weight: 700;
 }
 
+.active {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
 body {
     background-color: var(--PRIMARY-COLOR);
     font-family: 'Roboto', sans-serif;
@@ -49,7 +54,7 @@ header {
 
 .content-ctn {
     display: flex;
-    gap: 30px;
+    gap: 35px;
 }
 
 aside {

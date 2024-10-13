@@ -14,13 +14,15 @@ const homeController = asyncHandler (async function(req,res) {
         res.render("index", {
             allCategories,
             allBooks: books,
-            cssFile: "style.css"
+            cssFile: "style.css",
+            type: categoryid
         })
     } else {
         res.render("index", {
         allCategories, 
         allBooks,
-        cssFile: "/style.css"
+        cssFile: "/style.css",
+        type: "home"
     })
     }
 })

@@ -11,7 +11,8 @@ const booksController = {
         return res.render("bookDetail", { 
             book,
             cssFile: "/bookDetail.css",
-            allCategories
+            allCategories,
+            type: "none"
         })
     }),
 
@@ -29,7 +30,8 @@ const booksController = {
             errorMessages: [],
             allCategories,
             allSuppliers,
-            checkPath
+            checkPath,
+            type: "none"
         })
     }),
 
@@ -50,7 +52,8 @@ const booksController = {
                 errorMessages,
                 allCategories,
                 allSuppliers,
-                checkPath
+                checkPath,
+                type: "none"
             })
         }
 

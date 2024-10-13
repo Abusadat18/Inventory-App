@@ -9,7 +9,8 @@ const supplierController = {
         res.render("supplierInfo", {
             allSuppliers,
             allCategories,
-            cssFile: "/supplierInfo.css"
+            cssFile: "/supplierInfo.css",
+            type: "suppliers"
         })
     }),
 
@@ -35,7 +36,8 @@ const supplierController = {
             cssFile: "/addForm.css",
             checkPath,
             supplier,
-            allCategories
+            allCategories,
+            type: "none"
         })
     }),
 
@@ -57,7 +59,8 @@ const supplierController = {
                 cssFile: "/addForm.css",
                 checkPath,
                 supplier,
-                allCategories 
+                allCategories,
+                type: "none" 
             }) 
         } 
 
