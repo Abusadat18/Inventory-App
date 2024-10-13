@@ -69,11 +69,15 @@ const categoriesController = {
 
     addCategory: asyncHandler(async function(req,res){
         const errors = validationResult(req)
+        const checkPath = req.path.includes("edit")
         if (!errors.isEmpty()){
             const errorMessages = errors.array().map(error => error.msg);
+            const allCategories = await db.getAllCategories()
             return res.render("addCategoryForm", { 
                 errorMessages,
                 cssFile: "/addForm.css",
+                allCategories,
+                checkPath,
                 type: "category" 
             }) 
         } 
@@ -92,14 +96,18 @@ const categoriesController = {
 
     editCategory: asyncHandler(async function(req,res){
         const categoryid = +(req.params.categoryid)
+        const checkPath = req.path.includes("edit")
         const errors = validationResult(req)
         const category = await db.getCategory(categoryid)
         if (!errors.isEmpty()){
             const errorMessages = errors.array().map(error => error.msg);
+            const allCategories = await db.getAllCategories()
             return res.render("addCategoryForm", { 
                 errorMessages,
                 cssFile: "/addForm.css",
                 category,
+                allCategories,
+                checkPath,
                 type: "category" 
             }) 
         }

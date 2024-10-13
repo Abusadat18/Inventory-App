@@ -2,12 +2,6 @@
 <html lang="en">
 <%- include("partials/head") %>
 <body>
-    <% if(errorMessages && errorMessages.length>0) { %>
-        <script>
-            const errorMessage = "<%= errorMessages.join('\\n') %>";
-            alert(errorMessage)
-        </script>
-    <% } %>
     <%- include("partials/header") %>
     <div class="content-ctn">
         <%- include("partials/aside")%>
@@ -16,6 +10,10 @@
                 <label for="title">Category: </label>
                 <input type="text" name="title" id="title" value="<%= checkPath ? category.categoryname : '' %>" required>
             </div>
+            <!-- Error Validation -->
+            <% if(errorMessages && errorMessages.length>0) { %>
+                <p>*<%= errorMessages.join('\\n') %></p>
+            <% } %>
             <button class="btn" type="submit">Add Category</button>
             <button id="cancel-addcategory-btn" type="button" class="btn">Cancel</button>
         </form>

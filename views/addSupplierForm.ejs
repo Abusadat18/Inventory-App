@@ -2,12 +2,6 @@
 <html lang="en">
 <%- include("partials/head") %>
 <body>
-    <% if(errorMessages && errorMessages.length>0) { %>
-        <script>
-            const errorMessage = "<%= errorMessages.join('\\n') %>";
-            alert(errorMessage)
-        </script>
-    <% } %>
     <%- include("partials/header") %>
     <div class="content-ctn">
         <%- include("partials/aside")%>
@@ -20,6 +14,10 @@
                 <label for="contact">Contact: </label>
                 <input type="tel" name="contact" id="contact" value="<%= checkPath ? supplier.contactinfo : '' %>" required>
             </div>
+            <!-- Error Validation -->
+            <% if(errorMessages && errorMessages.length>0) { %>
+                <p>*<%= errorMessages.join('\\n') %></p>
+            <% } %>
             <button class="btn" type="submit">Add Supplier</button>
             <button class="btn" id="cancel-addsupplier-btn" type="button">Cancel</button>
         </form>

@@ -20,6 +20,9 @@ app.use("/", homeRouter)
 app.use("/categories", categoriesRouter)
 app.use("/books", booksRouter)
 app.use("/suppliers", supplierRouter)
+app.use((req,res) => {
+    res.status(404).send("404: Page not found")
+})
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`My first Express app - listening on port ${PORT}!`));
