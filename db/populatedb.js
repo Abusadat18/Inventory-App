@@ -64,7 +64,7 @@ INSERT INTO books (title, author, isbn, price, description, categoryid, supplier
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:6543/${process.env.DB_NAME}`
+    connectionString: `postgresql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`
   });
   await client.connect();
   await client.query(SQL);
