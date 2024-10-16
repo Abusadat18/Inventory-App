@@ -15,6 +15,7 @@ main {
     color: var(--PRIMARY-COLOR);
     background-color: var(--SECONDARY-COLOR);
     padding: 10px;
+    border-radius: 10px;
 }
 
 .card-top {
